@@ -12,7 +12,7 @@ class TestAmenity(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.amenity1 = Amenity()
-        cls.amenity1.name = "Hot Tub"
+        cls.amenity1.name = "Jaccuzi"
 
     @classmethod
     def tearDownClass(cls):
@@ -23,12 +23,10 @@ class TestAmenity(unittest.TestCase):
             pass
 
     def test_style_check(self):
-        """
-        Tests pep8 style
-        """
-        style = pep8.StyleGuide(quiet=True)
-        p = style.check_files(['models/amenity.py'])
-        self.assertEqual(p.total_errors, 0, "fix pep8")
+        """Test style"""
+        stingo = pep8.StyleGuide(quiet=True)
+        x = stingo.check_files(['models/amenity.py'])
+        self.assertEqual(x.total_errors, 0, "fix pep8")
 
     def test_is_subclass(self):
         self.assertTrue(issubclass(self.amenity1.__class__, BaseModel), True)
